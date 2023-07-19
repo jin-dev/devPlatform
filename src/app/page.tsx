@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styled from 'styled-components';
 import IdStore from 'components/zustand/idStore';
 import React from 'react';
+import BackgroundVideo from 'components/BackgroundVideo';
 export default function Home() {
 
   const StyledButton = styled.button`
@@ -13,6 +14,29 @@ export default function Home() {
   cursor: pointer;
   border-radius: 5px;
 `;
+
+const StyledHeader = styled.div`
+  padding: 10px;
+  width: 100%;
+  height : 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid white;
+`
+
+const StyledSection = styled.div`
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid white;
+`
+  
   
   const { id, setId } = IdStore();
 
@@ -28,7 +52,27 @@ export default function Home() {
 
 
   return (
+    
+
+
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <StyledHeader>
+        <div>
+          haha
+        </div>
+      </StyledHeader>
+
+      <StyledSection>
+    <BackgroundVideo/>
+      </StyledSection>
+
+      <StyledSection>
+        <div>
+          haha2
+        </div>
+      </StyledSection>
+
+
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <StyledButton> HAHA</StyledButton>
        <div>The value : {id}</div>
@@ -126,7 +170,11 @@ export default function Home() {
       </div>
     </main>
   )
+
+
+  
 }
+
 
 
 
