@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
            width={366}
            height={60}
            alt="Picture of the author"
-          src="https://www.nespresso.fi/Files/Images/Logos/HWW_MA_NES_Logo_Black_RGB_OP_WHITE.png" />
+          src="https://www.nespresso.com/ecom/medias/sys_master/public/10866891554846/logo-white.svg" />
 
           
         <div onClick={() => setNavActive(!navActive)} className={`nav__menu-bar`}>

@@ -20,7 +20,6 @@ nav{
   padding: 16px;
   justify-content: space-between;
   align-items: center;
-  background: white;
 
 }
 .nav__menu-bar{
@@ -55,6 +54,7 @@ nav{
   font-size: 18px; 
   position: relative;
   transition: all 0.2s;
+  color:white;
 }
 
 .nav__link:hover{
@@ -86,7 +86,7 @@ nav{
     height: 6px;
     bottom: -16px;
     left: 0;
-    background-color: black;
+    background-color: white;
     transition: all 0.2s;
   }
   

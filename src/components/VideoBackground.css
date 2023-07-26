@@ -16,14 +16,14 @@
 }
 
 .video-background {
-    position: relative;
+    display: flex;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
 }
 
 .video-background iframe {
-    position: absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
     width: var(--video-width);
