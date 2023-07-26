@@ -9,7 +9,6 @@ export const VideoBackground: VFC = () => {
         <iframe
             width={VIDEO_WIDTH}
             height={VIDEO_HEIGHT}
-          //  src="https://www.youtube.com/embed/D_vOqkEgmY0?autoplay=1&controls=0&mute=1&loop=1&modestbranding=1&showinfo=0&start=50&enablejsapi=1&&widgetid=3"
           src="https://www.youtube.com/embed/dlMCikRF1s8?playlist=dlMCikRF1s8&autoplay=1&controls=0&mute=1&loop=1&modestbranding=1&showinfo=0&enablejsapi=1&&widgetid=3"   
           title="YouTube video player"
             frameBorder="0"
