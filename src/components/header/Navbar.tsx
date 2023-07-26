@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 import React, { useState } from "react";
 import NavItem from "./NavItem";
 
@@ -20,11 +21,13 @@ const Navbar: React.FC = () => {
   return (
     <header>
       <nav className={`nav`}>
-        <Link href={"/"} legacyBehavior>
-          <a>
-            <h1 className="logo">Code with Jin</h1>
-          </a>
-        </Link>
+          <Image 
+           width={366}
+           height={60}
+           alt="Picture of the author"
+          src="https://www.nespresso.fi/Files/Images/Logos/HWW_MA_NES_Logo_Black_RGB_OP_WHITE.png" />
+
+          
         <div onClick={() => setNavActive(!navActive)} className={`nav__menu-bar`}>
           <div></div>
           <div></div>
