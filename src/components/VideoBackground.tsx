@@ -1,8 +1,8 @@
 import React, {VFC} from 'react';
 import './VideoBackground.css';
 
-const VIDEO_WIDTH = 1920;
-const VIDEO_HEIGHT = 1080;
+const VIDEO_WIDTH = 960;
+const VIDEO_HEIGHT = 504;
 
 export const VideoBackground: VFC = () => {
     return <div className="video-background">

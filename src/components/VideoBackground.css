@@ -1,6 +1,6 @@
 :root {
-    --video-width: 100vw;
-    --video-height: 100vh;
+    --video-width: 100%;
+    --video-height: 100%;
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -18,12 +18,11 @@
 .video-background {
     display: flex;
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+ 
 }
 
 .video-background iframe {
-    position:fixed;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: var(--video-width);
