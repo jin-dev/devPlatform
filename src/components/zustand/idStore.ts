@@ -18,3 +18,4 @@ const IdStore = create<ID>((set) => ({
 }));
 
 export default IdStore;
+

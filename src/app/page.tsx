@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Navbar from 'components/header/Navbar';
 import { VideoBackground } from 'components/VideoBackground';
 import "./globals.css";
+import IdStore from 'components/zustand/idStore';
+import useStore from 'components/zustand/store';
 
 export default function Home() {
 
@@ -43,6 +45,13 @@ const StyledSection2 = styled.section`
   border: 1px solid red;
 `
   
+const {count, increaseCount, decreaseCount, removeAllCount}: any = useStore(
+  state => state,
+);
+
+const {id, setId }: any = IdStore(
+  state => state,
+);
   
   return (
     
@@ -66,10 +75,11 @@ const StyledSection2 = styled.section`
       </StyledSection>
       <StyledSection2>
 
-        <div>section 2 </div>
- 
+        <div>{count} </div>
+          <button onClick={() => increaseCount()}> Click me</button>
       </StyledSection2>
     </Fragment>
+    
   )  
 }
 
