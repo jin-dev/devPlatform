@@ -4,7 +4,6 @@ import Navbar from 'components/header/Navbar'
 
 const Section1 = () => {
 
-
     const StyledSection = styled.section`
     padding: 10px;
     width: 100%;
@@ -42,6 +41,7 @@ const MemoizedIframe = memo(({ src  } : any) => (
         position: "absolute",
         top: 0,
         left: 0,
+        border: '1px solid black',
       }}
     ></iframe>
   ));

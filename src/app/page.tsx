@@ -12,16 +12,24 @@ export default function Home() {
 
   const [no, setNo] = useState(0)
 
+  const WholeSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+  `
   
   return (
     
     <Fragment>
-      
+      <WholeSection>
       <Section1/>
       <Section2/>
 
       <Footer/>
-    
+      </WholeSection>
     </Fragment>
     
   )  
