@@ -7,6 +7,7 @@ import "./globals.css";
 
 import Section1 from 'pages/section1';
 import Section2 from 'pages/section2';
+import Section3 from 'pages/section3';
 import Footer from 'components/footer/footer';
 export default function Home() {
 
@@ -27,7 +28,7 @@ export default function Home() {
       <WholeSection>
       <Section1/>
       <Section2/>
-
+    <Section3/>
       <Footer/>
       </WholeSection>
     </Fragment>
