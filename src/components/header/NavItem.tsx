@@ -1,11 +1,17 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-const NavItem = ({ text, href, active } : any)  => {
-    return (
-        <Link href={href} legacyBehavior>
-            <a className={'nav__link'}>{text}</a>
-        </Link>
-    );
-};
+interface NavProps {
+  text: string
+  href: string
+  active?: boolean // Declared as optional with `?`
+}
 
-export default NavItem;
+const NavItem = ({ text, href, active }: NavProps) => {
+  return (
+    <Link href={href}>
+      <div className="nav__link">{text}</div>
+    </Link>
+  )
+}
+
+export default NavItem
