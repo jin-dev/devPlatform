@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { styled } from 'styled-components'
 
-const Section3 = () => {
+function Section3() {
   const containerRef = useRef(null)
 
   const { scrollYProgress } = useScroll({

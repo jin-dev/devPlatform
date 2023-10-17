@@ -1,11 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-const Logo = () => {
-    return  (
-            <Fragment>
-                <div className='logo'>Code for Jin</div>
-            </Fragment>
-    )
+function Logo() {
+  return <div className="logo">Code for Jin</div>
 }
 
-export default Logo;
+export default Logo

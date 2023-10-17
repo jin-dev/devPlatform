@@ -2,7 +2,30 @@ import React, { memo } from 'react'
 import styled from 'styled-components'
 import Navbar from 'components/header/Navbar'
 
-const Section1 = () => {
+interface MemoizedIframeProps {
+  src: string
+}
+
+const MemoizedIframe: React.FC<MemoizedIframeProps> = memo(({ src }) => (
+  <iframe
+    title="YouTube Video"
+    src={src}
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+    style={{
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      border: '1px solid black',
+    }}
+  />
+))
+
+MemoizedIframe.displayName = 'MemoizedVideo'
+
+function Section1() {
   const StyledSection = styled.section`
     padding: 10px;
     width: 100%;
@@ -32,22 +55,6 @@ const Section1 = () => {
   `
 
   // eslint-disable-next-line react/display-name
-  const MemoizedIframe = memo(({ src }: any) => (
-    <iframe
-      title="YouTube Video"
-      src={src}
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-      style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        border: '1px solid black',
-      }}
-    ></iframe>
-  ))
 
   return (
     <StyledSection>

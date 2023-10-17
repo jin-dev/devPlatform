@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import IdStore from 'components/zustand/idStore'
-import useStore from 'components/zustand/store'
+// import IdStore from 'components/zustand/idStore'
+// import useStore from 'components/zustand/store'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 
-const Section2 = () => {
+function Section2() {
   const StyledSection2 = styled.section`
     width: 100%;
     display: flex;
@@ -13,12 +13,12 @@ const Section2 = () => {
     justify-content: center;
     align-items: center;
   `
-  const { count, increaseCount, decreaseCount, removeAllCount }: any = useStore(
+  /*  const { count, increaseCount, decreaseCount, removeAllCount }: any = useStore(
     (state) => state,
   )
 
   const { id, setId }: any = IdStore((state) => state)
-
+  */
   return (
     <StyledSection2>
       <Carousel>
