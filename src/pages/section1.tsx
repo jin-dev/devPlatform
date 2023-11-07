@@ -29,7 +29,7 @@ function Section1() {
   const StyledSection = styled.section`
     padding: 10px;
     width: 100%;
-    height: 118vh;
+    height: 116vh;
     display: flex;
     background-color: black;
     flex-direction: row;

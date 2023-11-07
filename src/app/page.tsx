@@ -15,7 +15,6 @@ export default function Home() {
       <GlobalStyle />
       <Section1 />
       <Section2 />
-      <Section3 />
       <Footer />
     </ThemeProvider>
   )

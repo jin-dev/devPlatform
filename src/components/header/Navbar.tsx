@@ -25,10 +25,10 @@ const Navbar: React.FC = () => {
     <header>
       <nav className="nav">
         <Image
-          width={366}
-          height={60}
-          alt="Picture of the author"
-          src="https://www.nespresso.com/ecom/medias/sys_master/public/10866891554846/logo-white.svg"
+          width={180}
+          height={80}
+          alt="logo_example"
+          src="https://drive.google.com/uc?id=1kwHpVnRlVwKZe0eSnQFLNYckv9gn_qOF"
         />
 
         <div onClick={() => setNavActive(!navActive)} className="nav__menu-bar">

@@ -13,6 +13,11 @@ function Section2() {
     justify-content: center;
     align-items: center;
   `
+  setTimeout(() => {
+    const temp = document.getElementsByClassName('thumbs animated')[0]
+    temp.style.display = 'flex'
+    temp.style.justifyContent = 'center'
+  }, 500)
   /*  const { count, increaseCount, decreaseCount, removeAllCount }: any = useStore(
     (state) => state,
   )

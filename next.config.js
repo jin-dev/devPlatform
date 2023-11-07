@@ -6,7 +6,7 @@ const nextConfig = {
     styledComponents: true, // 추가
   },
   images: {
-    domains: ['www.nespresso.com', 'localhost'],
+    domains: ['www.nespresso.com', 'localhost', 'drive.google.com'],
   },
 }
 
