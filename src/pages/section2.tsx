@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 // import IdStore from 'components/zustand/idStore'
 // import useStore from 'components/zustand/store'
@@ -13,11 +13,21 @@ function Section2() {
     justify-content: center;
     align-items: center;
   `
-  setTimeout(() => {
-    const temp = document.getElementsByClassName('thumbs animated')[0]
+  useEffect(() => {
+    // This code will run after the component has rendered
+    const temp = document.getElementsByClassName(
+      'thumbs animated',
+    )[0] as HTMLElement
     temp.style.display = 'flex'
     temp.style.justifyContent = 'center'
-  }, 500)
+
+    // Clean up the styles when the component unmounts
+    return () => {
+      temp.style.display = '' // Reset display to its original state
+      temp.style.justifyContent = '' // Reset justifyContent to its original state
+    }
+  }, []) // The empty dependency array means this effect runs only once, similar to componentDidMount
+
   /*  const { count, increaseCount, decreaseCount, removeAllCount }: any = useStore(
     (state) => state,
   )

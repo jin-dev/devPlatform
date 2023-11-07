@@ -2,8 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    // 추가
-    styledComponents: true, // 추가
+    styledComponents: true,
   },
   images: {
     domains: ['www.nespresso.com', 'localhost', 'drive.google.com'],
