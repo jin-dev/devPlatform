@@ -13,7 +13,7 @@ interface MenuItem {
 
 const MENU_LIST: MenuItem[] = [
   { text: 'Home', href: '/' },
-  { text: 'About', href: '/about' },
+  { text: 'Reservation', href: '/openClass' },
   { text: 'Contact', href: '/contact' },
 ]
 

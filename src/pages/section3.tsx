@@ -1,10 +1,11 @@
 import React, { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { styled } from 'styled-components'
 
 function Section3() {
   const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true })
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -86,6 +87,17 @@ function Section3() {
       <TextCopy>
         <h2>Hello there It is my test case</h2>
       </TextCopy>
+      <span
+        style={{
+          transform: isInView ? 'none' : 'translateX(-200px)',
+          opacity: isInView ? 1 : 0,
+          transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+          color: 'white',
+        }}
+      >
+        {' '}
+        haha{' '}
+      </span>
       <ImageContainer className="img-container">
         <ImageInner style={{ translateX: imageValue }}>
           <BottomShadow style={{ translateX: bottomShadowValue }} />
