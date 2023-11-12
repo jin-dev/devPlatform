@@ -1,8 +1,21 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { useEffect } from 'react'
 import '../app/globals.css'
+import { collection, query, addDoc } from 'firebase/firestore'
+import { db } from '../app/firebase'
+// import { useCollection } from 'react-firebase-hooks/firestore'
 
-const about = () => {
+const OpenClass = () => {
+  const addItem = async () => {
+    await addDoc(collection(db, 'items-dev'), {
+      name: 'haha-Jin',
+      price: 99999,
+    })
+  }
+
+  useEffect(() => {
+    addItem()
+  }, [])
+
   return (
     <section className="bg-dark-blue">
       <div className="font-lato bg-white">
@@ -104,4 +117,4 @@ const about = () => {
   )
 }
 
-export default about
+export default OpenClass
