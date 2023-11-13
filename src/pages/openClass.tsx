@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import '../app/globals.css'
 import { collection, query, addDoc } from 'firebase/firestore'
+import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import { db } from '../app/firebase'
+import DataItem from '../type/types'
+import useStore from '../components/zustand/dataStore'
 // import { useCollection } from 'react-firebase-hooks/firestore'
 
+type StoreState = {
+  data: DataItem[] // Assuming DataItem is the type of your data
+}
+
 const OpenClass = () => {
+  const dataStore = useStore((state: StoreState) => state.data)
   const addItem = async () => {
     await addDoc(collection(db, 'items-dev'), {
       name: 'haha-Jin',
@@ -12,15 +20,11 @@ const OpenClass = () => {
     })
   }
 
-  useEffect(() => {
-    addItem()
-  }, [])
-
   return (
     <section className="bg-dark-blue">
       <div className="font-lato bg-white">
-        <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-0">
-          <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-0">
+        <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">
+          <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">
             <div className="flex flex-col items-center md:items-start justify-start">
               <h1 className="text-4xl font-bold pt-6 pb-3 text-left mb-5">
                 Upcoming events
