@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import Navbar from 'components/header/Navbar'
+import WebsiteOverlay from 'components/textOverlay'
 
 interface MemoizedIframeProps {
   src: string
@@ -60,6 +61,7 @@ function Section1() {
     <StyledSection>
       <Navbar />
       <MemoizedIframe src="https://www.youtube.com/embed/dlMCikRF1s8?playlist=dlMCikRF1s8&autoplay=1&controls=0&mute=1&loop=1&modestbranding=1&showinfo=0&enablejsapi=1&&widgetid=3" />
+      <WebsiteOverlay />
     </StyledSection>
   )
 }

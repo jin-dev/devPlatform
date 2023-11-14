@@ -5,7 +5,7 @@ import '../../app/globals.css'
 
 function Footer() {
   return (
-    <div className="flex w-full h-12 bg-black text-white justify-evenly items-center">
+    <div className="static bottom-0 z-10 w-full h-12 bg-black text-white flex justify-evenly items-center">
       <div>Next.js template</div>
       <div>PRESENTATION</div>
       <div>DISCOVER</div>

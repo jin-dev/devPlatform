@@ -91,7 +91,7 @@ const ClassDetail = () => {
   }
 
   return (
-    <div className="bg-dark-blue">
+    <div className="bg-dark-blue h-screen">
       <div className="font-lato bg-white">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
