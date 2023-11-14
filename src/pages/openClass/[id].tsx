@@ -51,7 +51,8 @@ type StoreState = {
 const ClassDetail = () => {
   const router = useRouter()
   const { id } = router.query
-  const dataStore = useStore((state: StoreState) => state.data)
+  const { data, setData } = useStore()
+
   const [items, setItems] = useState(initialItems)
   const [items2, setItems2] = useState(initialItems2)
   const [flag, setFlag] = useState(false)
@@ -70,6 +71,12 @@ const ClassDetail = () => {
   const handleRemoveSelf = (itemName: string) => {
     // setItems([...items].filter((name) => name !== itemName))
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+
+    const newData = [...data, itemName] // Add 1 and 2 to the existing data
+
+    // Update the data state with the new array
+    setData(newData)
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     flag ? submitReversation() : null
 
@@ -98,7 +105,10 @@ const ClassDetail = () => {
                 </h2>
                 <div className="py-2 text-left flex flex-wrap ">
                   {final ? (
-                    <div>haha2</div>
+                    <div>
+                      <div>{data[0]}</div>
+                      <div>{data[1]}</div>
+                    </div>
                   ) : (
                     <AnimatePresence>
                       {[...items].sort(sort).map((item) => (

@@ -1,9 +1,8 @@
 import { create } from 'zustand'
-import DataItem from '../../type/types'
 
 interface Store {
-  data: DataItem[]
-  setData: (data: DataItem[]) => void
+  data: string[]
+  setData: (data: string[]) => void
 }
 
 const useStore = create<Store>((set) => ({

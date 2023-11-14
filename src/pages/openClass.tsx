@@ -1,24 +1,26 @@
 import React, { ReactNode, useEffect, useState } from 'react'
+import Link from 'next/link'
 import '../app/globals.css'
 import { collection, query, addDoc } from 'firebase/firestore'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
-import { db } from '../app/firebase'
 import DataItem from '../type/types'
 import useStore from '../components/zustand/dataStore'
 // import { useCollection } from 'react-firebase-hooks/firestore'
+// import { db } from '../app/firebase'
 
 type StoreState = {
   data: DataItem[] // Assuming DataItem is the type of your data
 }
 
 const OpenClass = () => {
-  const dataStore = useStore((state: StoreState) => state.data)
+  /*
   const addItem = async () => {
     await addDoc(collection(db, 'items-dev'), {
       name: 'haha-Jin',
       price: 99999,
     })
   }
+*/
 
   return (
     <section className="bg-dark-blue">
@@ -36,41 +38,43 @@ const OpenClass = () => {
                   January. 2024
                 </div>
               </div>
-              <div className="flex flex-wrap">
-                <div className="flex flex-wrap justify-between align-baseline bg-white overflow-hidden rounded-none w-full mb-10 cursor-pointer">
-                  <div className="flex !basis-1/6 md:!basis-1/12 flex-col justify-center items-center basis-1/12 border-solid border border-gray font-light relative">
-                    <p className="absolute top-0 left-0 w-full px-1 md:px-3 py-3 text-xs md:text-base text-center">
-                      Event
-                    </p>
-                    <p className="text-center text-gray">
-                      Mon
-                      <span className="block font-normal text-2xl md:text-4xl">
-                        01
-                      </span>
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap basis-5/6 lg:basis-11/12">
-                    <div className="px-5 pt-5 pb-2 md:px-6 md:pt-6 md:basis-1/2 flex flex-col justify-between !p-5 md:!pd-10 !basis-full lg:!basis-1/2 bg-gray-100 order-2 lg:order-1">
-                      <p>2024-01-01</p>
-                      <h2 className="text-3xl font-semibold leading-10 font-normal">
-                        Nespresso Open Class
-                      </h2>
-                      <p className="text-base font-light my-4 line-clamp-4 !my-0">
-                        It is a well known free coffee by Nespresso Korea
+              <Link href="/openClass/1">
+                <div className="flex flex-wrap">
+                  <div className="flex flex-wrap justify-between align-baseline bg-white overflow-hidden rounded-none w-full mb-10 cursor-pointer">
+                    <div className="flex !basis-1/6 md:!basis-1/12 flex-col justify-center items-center basis-1/12 border-solid border border-gray font-light relative">
+                      <p className="absolute top-0 left-0 w-full px-1 md:px-3 py-3 text-xs md:text-base text-center">
+                        Event
                       </p>
-                      <div className="mt-10 flex flex-wrap items-center justify-center justify-self-end justify-between">
-                        <p>Seoul, Korea</p>
-                        <p>FREE</p>
-                      </div>
+                      <p className="text-center text-gray">
+                        Mon
+                        <span className="block font-normal text-2xl md:text-4xl">
+                          01
+                        </span>
+                      </p>
                     </div>
-                    <div className="basis-full lg:basis-1/2 !order-1 lg:!order-2">
-                      <div className="md:basis-1/2">
-                        <img src="https://www.nespresso.com/ecom/medias/sys_master/public/29408650821662/2311-festive-card-banner-ma-1120x630px.png?impolicy=small&imwidth=560&imdensity=1" />
+                    <div className="flex flex-wrap basis-5/6 lg:basis-11/12">
+                      <div className="px-5 pt-5 pb-2 md:px-6 md:pt-6 md:basis-1/2 flex flex-col justify-between !p-5 md:!pd-10 !basis-full lg:!basis-1/2 bg-gray-100 order-2 lg:order-1">
+                        <p>2024-01-01</p>
+                        <h2 className="text-3xl font-semibold leading-10 font-normal">
+                          Nespresso Open Class
+                        </h2>
+                        <p className="text-base font-light my-4 line-clamp-4 !my-0">
+                          It is a well known free coffee by Nespresso Korea
+                        </p>
+                        <div className="mt-10 flex flex-wrap items-center justify-center justify-self-end justify-between">
+                          <p>Seoul, Korea</p>
+                          <p>FREE</p>
+                        </div>
+                      </div>
+                      <div className="basis-full lg:basis-1/2 !order-1 lg:!order-2">
+                        <div className="md:basis-1/2">
+                          <img src="https://www.nespresso.com/ecom/medias/sys_master/public/29408650821662/2311-festive-card-banner-ma-1120x630px.png?impolicy=small&imwidth=560&imdensity=1" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
             <div>
               <div className="flex flex-col items-center md:items-start justify-start">
