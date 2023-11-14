@@ -136,6 +136,7 @@ const OpenClass = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   )
 }

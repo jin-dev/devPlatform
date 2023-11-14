@@ -142,6 +142,7 @@ const ClassDetail = () => {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   )
 }
