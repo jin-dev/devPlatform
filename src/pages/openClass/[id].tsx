@@ -5,7 +5,6 @@ import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import useStore from 'components/zustand/dataStore'
 import Button from '@mui/material/Button'
 import Footer from 'components/footer/footer'
-import DataItem from '../../type/types'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']
 const initialItems2 = ['15:00', '16:00', '17:00']
@@ -44,10 +43,6 @@ const Item = ({
       {children}
     </motion.h1>
   )
-}
-
-type StoreState = {
-  data: DataItem[] // Assuming DataItem is the type of your data
 }
 
 const ClassDetail = () => {

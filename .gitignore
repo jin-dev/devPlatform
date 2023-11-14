@@ -38,3 +38,4 @@ yarn.lock
 src/app/firebase.ts
 yarn.lock
 package-lock.json
+service-account.json

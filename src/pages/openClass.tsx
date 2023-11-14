@@ -4,6 +4,7 @@ import '../app/globals.css'
 import { collection, query, addDoc } from 'firebase/firestore'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import Footer from 'components/footer/footer'
+import { useIdle } from '@uidotdev/usehooks'
 import DataItem from '../type/types'
 import useStore from '../components/zustand/dataStore'
 // import { useCollection } from 'react-firebase-hooks/firestore'
@@ -22,6 +23,11 @@ const OpenClass = () => {
     })
   }
 */
+  const idle = useIdle(10000)
+
+  useEffect(() => {
+    console.log('the status : ', idle)
+  }, [idle])
 
   return (
     <section className="bg-dark-blue">
