@@ -3,6 +3,7 @@ import Link from 'next/link'
 import '../app/globals.css'
 import { collection, query, addDoc } from 'firebase/firestore'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
+import Footer from 'components/footer/footer'
 import DataItem from '../type/types'
 import useStore from '../components/zustand/dataStore'
 // import { useCollection } from 'react-firebase-hooks/firestore'
@@ -27,12 +28,21 @@ const OpenClass = () => {
       <div className="font-lato bg-white">
         <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">
           <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">
-            <div className="flex flex-col items-center md:items-start justify-start">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="flex flex-col items-center md:items-start justify-start"
+            >
               <h1 className="text-4xl font-bold pt-6 pb-3 text-left mb-5">
                 Upcoming events
               </h1>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
               <div className="flex flex-col items-center md:items-start justify-start">
                 <div className="inline-flex items-center justify-cente bg-sky-800 mb-8 px-10 py-3 text-white">
                   January. 2024
@@ -75,8 +85,13 @@ const OpenClass = () => {
                   </div>
                 </div>
               </Link>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              {' '}
               <div className="flex flex-col items-center md:items-start justify-start">
                 <div className="inline-flex items-center justify-cente bg-sky-800 mb-8 px-10 py-3 text-white">
                   February. 2024
@@ -117,7 +132,7 @@ const OpenClass = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import '../../app/globals.css'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import useStore from 'components/zustand/dataStore'
+import Button from '@mui/material/Button'
+import Footer from 'components/footer/footer'
 import DataItem from '../../type/types'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']
@@ -64,8 +66,12 @@ const ClassDetail = () => {
 
     return 0
   }
-  const submitReversation = () => {
+  const nextStep = () => {
     setFinal(!final)
+  }
+
+  const submitReservation = () => {
+    console.log('finished')
   }
 
   const handleRemoveSelf = (itemName: string) => {
@@ -78,7 +84,7 @@ const ClassDetail = () => {
     // Update the data state with the new array
     setData(newData)
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    flag ? submitReversation() : null
+    flag ? nextStep() : null
 
     setFlag(!flag)
     setItems([...items2])
@@ -87,7 +93,12 @@ const ClassDetail = () => {
   return (
     <div className="bg-dark-blue">
       <div className="font-lato bg-white">
-        <div className="flex flex-wrap max-w-7xl mx-auto px-2 sm:px-6 lg:px-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-wrap max-w-7xl mx-auto px-2 sm:px-6 lg:px-4"
+        >
           <div className="flex flex-wrap justify-between align-start bg-white overflow-hidden rounded-none w-full flex mb-10 my-10">
             <div className="flex !basis-1/6 lg:!basis-1/12 flex-col basis-1/12 font-light relative  bg-gray-50">
               <p className="w-full px-1 md:px-3 py-7 text-xs md:text-base text-center text-white bg-sky-800">
@@ -103,11 +114,15 @@ const ClassDetail = () => {
                 <h2 className="text-3xl font-semibold leading-10 font-normal mt-5 mb-8">
                   Nespresso Open Coffee class
                 </h2>
-                <div className="py-2 text-left flex flex-wrap ">
+                <div className="py-2 text-left flex flex-wrap">
                   {final ? (
-                    <div>
+                    <div className="flex flex-row flex-wrap justify-between w-full">
+                      <div>Summary: </div>
                       <div>{data[0]}</div>
                       <div>{data[1]}</div>
+                      <Button onClick={submitReservation} variant="contained">
+                        Send
+                      </Button>
                     </div>
                   ) : (
                     <AnimatePresence>
@@ -125,7 +140,7 @@ const ClassDetail = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
