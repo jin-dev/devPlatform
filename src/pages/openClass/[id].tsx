@@ -4,6 +4,7 @@ import '../../app/globals.css'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import useStore from 'components/zustand/dataStore'
 import Button from '@mui/material/Button'
+import Section2 from 'pages/section2'
 import Footer from 'components/footer/footer'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']
@@ -137,6 +138,7 @@ const ClassDetail = () => {
           </div>
         </motion.div>
       </div>
+      <Section2 />
       <Footer />
     </div>
   )

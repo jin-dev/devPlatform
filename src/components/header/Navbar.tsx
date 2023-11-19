@@ -9,12 +9,13 @@ import NavItem from './NavItem'
 interface MenuItem {
   text: string
   href: string
+  iconFlag?: boolean
 }
 
 const MENU_LIST: MenuItem[] = [
   { text: 'Home', href: '/' },
   { text: 'Reservation', href: '/openClass' },
-  { text: 'Contact', href: '/contact' },
+  { text: 'Account', href: '', iconFlag: true },
 ]
 
 const Navbar: React.FC = () => {

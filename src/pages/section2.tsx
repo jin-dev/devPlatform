@@ -8,7 +8,7 @@ function Section2() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section className="flex w-full flex-row justify-center align-center p-20 bg-black">
+    <section className="flex w-full flex-row justify-center align-center p-20">
       <div
         ref={ref}
         style={{
@@ -16,6 +16,7 @@ function Section2() {
           opacity: isInView ? 1 : 0,
           transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
         }}
+        className="w w-2/4"
       >
         <Carousel autoPlay infiniteLoop useKeyboardArrows showThumbs={false}>
           <div>

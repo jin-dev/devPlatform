@@ -28,9 +28,9 @@ MemoizedIframe.displayName = 'MemoizedVideo'
 
 function Section1() {
   const StyledSection = styled.section`
-    padding: 10px;
-    width: 100%;
-    height: 116vh;
+    padding: 5px;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     background-color: black;
     flex-direction: row;
