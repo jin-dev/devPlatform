@@ -1,7 +1,9 @@
+'use client'
+
 import { useState } from 'react'
 import Link from 'next/link'
 import { MdOutlineAccountCircle } from 'react-icons/md'
-import NewWindow from 'react-new-window'
+import { signIn } from 'next-auth/react'
 
 interface NavProps {
   text: string
@@ -39,12 +41,10 @@ const NavItem = ({ active, text, href, iconFlag }: NavProps) => {
       className={`nav__link ${active ? 'active' : ''}`}
       role="button"
       tabIndex={0}
-      onClick={activateAuth}
+      onClick={() => signIn('google')}
       onKeyPress={handleKeyPress}
     >
       {iconFlag && <MdOutlineAccountCircle />}
-
-      {popup && <NewWindow url="/signIn" onUnload={() => setPopup(false)} />}
     </div>
   )
 }

@@ -1,7 +1,9 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import styled from 'styled-components'
 import Navbar from 'components/header/Navbar'
 import WebsiteOverlay from 'components/textOverlay'
+import { useSession } from 'next-auth/react'
+import useStore from 'components/zustand/dataStore'
 
 interface MemoizedIframeProps {
   src: string
@@ -27,6 +29,16 @@ const MemoizedIframe: React.FC<MemoizedIframeProps> = memo(({ src }) => (
 MemoizedIframe.displayName = 'MemoizedVideo'
 
 function Section1() {
+  const { data: session, status } = useSession()
+  const setSession = useStore((state) => state.setSession)
+
+  useEffect(() => {
+    console.log('The status : ', status)
+    if (status === 'authenticated') {
+      setSession(session)
+    }
+  }, [session, status, setSession])
+
   const StyledSection = styled.section`
     padding: 5px;
     width: 100vw;
