@@ -6,6 +6,8 @@ import useStore from 'components/zustand/dataStore'
 import Button from '@mui/material/Button'
 import Section2 from 'pages/section2'
 import Footer from 'components/footer/footer'
+import { collection, query, addDoc } from 'firebase/firestore'
+import { db } from 'app/firebase'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']
 const initialItems2 = ['15:00', '16:00', '17:00']
@@ -57,6 +59,14 @@ const ClassDetail = () => {
   const [final, setFinal] = useState(false)
   const [isSorted, setIsSorted] = useState(false)
 
+  const addItem = async () => {
+    await addDoc(collection(db, 'items-dev'), {
+      name: 'haha-NestSSO',
+      price: 77700,
+      createdTime: new Date().toLocaleString(),
+    })
+  }
+
   const sort = (a: string, b: string) => {
     if (isSorted) return a.localeCompare(b)
 
@@ -67,7 +77,9 @@ const ClassDetail = () => {
   }
 
   const submitReservation = () => {
-    console.log('finished')
+    console.log('activated')
+    addItem()
+    console.log('completed')
   }
 
   const handleRemoveSelf = (itemName: string) => {
