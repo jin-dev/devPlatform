@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
 import '../../app/globals.css'
@@ -57,6 +58,7 @@ const ClassDetail = () => {
   const [items2, setItems2] = useState(initialItems2)
   const [flag, setFlag] = useState(false)
   const [final, setFinal] = useState(false)
+  const [confirmed, setConfirmed] = useState(false)
   const [isSorted, setIsSorted] = useState(false)
 
   const addItem = async () => {
@@ -80,6 +82,7 @@ const ClassDetail = () => {
     console.log('activated')
     addItem()
     console.log('completed')
+    setConfirmed(true)
   }
 
   const handleRemoveSelf = (itemName: string) => {
@@ -123,23 +126,40 @@ const ClassDetail = () => {
                   Nespresso Open Coffee class
                 </h2>
                 <div className="py-2 text-left flex flex-wrap">
-                  {final ? (
-                    <div className="flex flex-row flex-wrap justify-between w-full">
-                      <div>Summary: </div>
-                      <div>{data[0]}</div>
-                      <div>{data[1]}</div>
-                      <Button onClick={submitReservation} variant="contained">
-                        Send
-                      </Button>
-                    </div>
+                  {!confirmed ? (
+                    final ? (
+                      <div className="flex flex-row flex-wrap justify-between w-full">
+                        <div>Summary: </div>
+                        <div>{data[0]}</div>
+                        <div>{data[1]}</div>
+                        <Button onClick={submitReservation} variant="contained">
+                          Send
+                        </Button>
+                      </div>
+                    ) : (
+                      <AnimatePresence>
+                        {[...items].sort(sort).map((item) => (
+                          <Item
+                            key={item}
+                            onClick={() => handleRemoveSelf(item)}
+                          >
+                            {item}
+                          </Item>
+                        ))}
+                      </AnimatePresence>
+                    )
                   ) : (
-                    <AnimatePresence>
-                      {[...items].sort(sort).map((item) => (
-                        <Item key={item} onClick={() => handleRemoveSelf(item)}>
-                          {item}
-                        </Item>
-                      ))}
-                    </AnimatePresence>
+                    <div className="flex flex-wrap w-full justify-center text-lg text-blue-600 font-bold">
+                      <motion.div
+                        animate={{
+                          scale: [1, 2, 2, 1, 1],
+                          rotate: [0, 0, 270, 270, 0],
+                          borderRadius: ['20%', '20%', '50%', '50%', '20%'],
+                        }}
+                      >
+                        Confirmed!{' '}
+                      </motion.div>
+                    </div>
                   )}
                 </div>
               </div>
