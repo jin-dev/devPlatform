@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import '../../app/globals.css'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
@@ -7,7 +7,13 @@ import useStore from 'components/zustand/dataStore'
 import Button from '@mui/material/Button'
 import Section2 from 'pages/section2'
 import Footer from 'components/footer/footer'
-import { collection, query, addDoc } from 'firebase/firestore'
+import {
+  collection,
+  query,
+  addDoc,
+  where,
+  getCountFromServer,
+} from 'firebase/firestore'
 import { db } from 'app/firebase'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']

@@ -1,12 +1,20 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import Link from 'next/link'
 import '../app/globals.css'
-import { collection, query, addDoc } from 'firebase/firestore'
+import {
+  collection,
+  query,
+  addDoc,
+  getCountFromServer,
+} from 'firebase/firestore'
+import { db } from 'app/firebase'
 import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
 import Footer from 'components/footer/footer'
 import { useIdle } from '@uidotdev/usehooks'
+import { IoPeopleOutline } from 'react-icons/io5'
 import DataItem from '../type/types'
 import useStore from '../components/zustand/dataStore'
+
 // import { useCollection } from 'react-firebase-hooks/firestore'
 // import { db } from '../app/firebase'
 
@@ -24,10 +32,22 @@ const OpenClass = () => {
   }
 */
   const idle = useIdle(10000)
+  const [currentCount, setCurrentCount] = useState(0)
+
+  const getCounter = async () => {
+    const dbRef = collection(db, 'items-dev')
+    const snapshot = await getCountFromServer(dbRef)
+    setCurrentCount(() => snapshot.data().count)
+    // console.log("the counter is : ", currentCount)
+  }
 
   useEffect(() => {
     console.log('the status : ', idle)
   }, [idle])
+
+  useEffect(() => {
+    getCounter()
+  }, [])
 
   return (
     <section className="bg-dark-blue">
@@ -79,7 +99,9 @@ const OpenClass = () => {
                         </p>
                         <div className="mt-10 flex flex-wrap items-center justify-center justify-self-end justify-between">
                           <p>Seoul, Korea</p>
-                          <p>FREE</p>
+                          <p>
+                            <IoPeopleOutline /> {currentCount} / 45
+                          </p>
                         </div>
                       </div>
                       <div className="basis-full lg:basis-1/2 !order-1 lg:!order-2">
