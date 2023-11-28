@@ -29,16 +29,16 @@ const MemoizedIframe: React.FC<MemoizedIframeProps> = memo(({ src }) => (
 MemoizedIframe.displayName = 'MemoizedVideo'
 
 function Section1() {
-  const { data: session, status } = useSession()
-  const setSession = useStore((state) => state.setSession)
+  // const { data: session, status } = useSession()
+  // const setSession = useStore((state) => state.setSession)
 
-  useEffect(() => {
+  /*  useEffect(() => {
     console.log('The status : ', status)
     if (status === 'authenticated') {
       setSession(session)
     }
   }, [session, status, setSession])
-
+*/
   const StyledSection = styled.section`
     padding: 5px;
     width: 100vw;
