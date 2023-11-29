@@ -30,13 +30,10 @@ MemoizedIframe.displayName = 'MemoizedVideo'
 
 function Section1() {
   const { data: session, status } = useSession()
-  const setSession = useStore((state) => state.setSession)
+  //  const setSession = useStore((state) => state.setSession)
 
   useEffect(() => {
     console.log('The status : ', status)
-    if (status === 'authenticated') {
-      setSession(session)
-    }
   }, [session, status])
 
   const StyledSection = styled.section`
