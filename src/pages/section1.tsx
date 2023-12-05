@@ -16,12 +16,11 @@ const MemoizedIframe: React.FC<MemoizedIframeProps> = memo(({ src }) => (
     allow="autoplay; encrypted-media"
     allowFullScreen
     style={{
-      width: '100%',
-      height: '100%',
+      width: '100vw',
+      height: '100vh',
       position: 'absolute',
       top: 0,
       left: 0,
-      border: '1px solid black',
     }}
   />
 ))
@@ -32,10 +31,7 @@ function Section1() {
   const { data: session, status } = useSession() || {}
   const setSession = useStore((state) => state.setSession)
 
-  useEffect(() => {
-    console.log('The status : ', status)
-    console.log('The session : ', session)
-  }, [session, status, setSession])
+  useEffect(() => {}, [session, status, setSession])
 
   const StyledSection = styled.section`
     padding: 5px;
@@ -44,8 +40,6 @@ function Section1() {
     display: flex;
     background-color: black;
     flex-direction: row;
-    justify-content: space-evenly;
-
     position: relative;
     overflow: hidden; /* Hide any content that may overflow from the iframe */
     /* Customize the video overlay */

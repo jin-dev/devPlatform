@@ -4,8 +4,11 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'components/styles/theme'
 import GlobalStyle from 'components/styles/GlobalStyles'
-import Section1 from 'pages/section1'
+
 import Footer from 'components/footer/footer'
+import dynamic from 'next/dynamic'
+
+const Section1 = dynamic(() => import('pages/section1'))
 
 export default function Home() {
   return (

@@ -1,53 +1,24 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import '../app/globals.css'
-import {
-  collection,
-  query,
-  addDoc,
-  getCountFromServer,
-} from 'firebase/firestore'
+import { collection, getCountFromServer } from 'firebase/firestore'
 import { db } from 'app/firebase'
-import { motion, useIsPresent, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Footer from 'components/footer/footer'
 import { useIdle } from '@uidotdev/usehooks'
 import { IoPeopleOutline } from 'react-icons/io5'
-import DataItem from '../type/types'
-import useStore from '../components/zustand/dataStore'
 
-// import { useCollection } from 'react-firebase-hooks/firestore'
-// import { db } from '../app/firebase'
-
-type StoreState = {
-  data: DataItem[] // Assuming DataItem is the type of your data
+interface IProps {
+  data: number
 }
 
-const OpenClass = () => {
-  /*
-  const addItem = async () => {
-    await addDoc(collection(db, 'items-dev'), {
-      name: 'haha-Jin',
-      price: 99999,
-    })
-  }
-*/
+const OpenClass = (props: IProps) => {
   const idle = useIdle(10000)
-  const [currentCount, setCurrentCount] = useState(0)
-
-  const getCounter = async () => {
-    const dbRef = collection(db, 'items-dev')
-    const snapshot = await getCountFromServer(dbRef)
-    setCurrentCount(() => snapshot.data().count)
-    // console.log("the counter is : ", currentCount)
-  }
+  const [currentCount, setCurrentCount] = useState(props?.data)
 
   useEffect(() => {
     console.log('the status : ', idle)
   }, [idle])
-
-  useEffect(() => {
-    getCounter()
-  }, [])
 
   return (
     <section className="bg-dark-blue">
@@ -170,3 +141,11 @@ const OpenClass = () => {
 }
 
 export default OpenClass
+
+export async function getServerSideProps() {
+  const dbRef = collection(db, 'items-dev')
+  const snapshot = await getCountFromServer(dbRef)
+  const data = snapshot.data().count
+
+  return { props: { data } }
+}
