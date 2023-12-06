@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const WebsiteOverlay: React.FC = () => {
   return (
     <motion.div
-      className="flex flex-col absolute w-full h-full z-10 p-10 text-white"
+      className="top-0 flex flex-col absolute w-full h-full z-10 p-10 text-white"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
@@ -29,11 +29,11 @@ const WebsiteOverlay: React.FC = () => {
           alt="VL"
           className="absolute right-10"
         />
-        <div className="mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <div className="mb-6 tracking-wide leading-6">
+          Nespresso capsules are sleek, hermetically sealed pods containing
+          premium, finely ground coffee. Designed for use with Nespresso
+          machines, they offer a variety of rich flavors and aromas, ensuring a
+          perfect espresso at the touch of a button.
         </div>
         <div className="flex text-3xl gap-8 mt-auto">
           <FaFacebookF />

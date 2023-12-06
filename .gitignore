@@ -39,3 +39,13 @@ src/app/firebase.ts
 yarn.lock
 package-lock.json
 service-account.json
+yarn.lock
+package-lock.json
+src/assets/test.tsx
+src/assets/3d/bird.glb
+src/assets/3d/fox.glb
+src/assets/3d/island.glb
+.gitignore
+src/assets/3d/sky.glb
+src/assets/3d/plane.glb
+src/models/Bird.tsx

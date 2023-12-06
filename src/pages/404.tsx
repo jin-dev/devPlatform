@@ -1,6 +1,7 @@
 import React, { Fragment, useRef, useState } from 'react'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Canvas, useFrame } from '@react-three/fiber'
+import Bird from 'models/Bird'
 
 interface BoxProps {
   position: [number, number, number]
@@ -47,6 +48,7 @@ const NotFound404: React.FC = () => {
         <pointLight position={[10, 10, 10]} />
         <Box position={[-1.2, 0, 0]} />
         <Box position={[1.2, 0, 0]} />
+        <Bird />
       </Canvas>
       <div>NOT found Page (404)</div>
     </>

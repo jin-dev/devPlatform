@@ -8,21 +8,32 @@ import useStore from 'components/zustand/dataStore'
 interface MemoizedIframeProps {
   src: string
 }
+const IframeOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; // Higher than the iframe to capture clicks
+`
 
-const MemoizedIframe: React.FC<MemoizedIframeProps> = memo(({ src }) => (
-  <iframe
-    title="YouTube Video"
-    src={src}
-    allow="autoplay; encrypted-media"
-    allowFullScreen
-    style={{
-      width: '100vw',
-      height: '100vh',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-    }}
-  />
+const MemoizedIframe = memo(({ src }: MemoizedIframeProps) => (
+  <div>
+    <iframe
+      title="YouTube Video"
+      src={src}
+      allow="autoplay; encrypted-media; screen-wake-lock"
+      allowFullScreen
+      style={{
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: '0px',
+        left: '0px',
+      }}
+    />
+    <IframeOverlay />
+  </div>
 ))
 
 MemoizedIframe.displayName = 'MemoizedVideo'
@@ -35,14 +46,12 @@ function Section1() {
 
   const StyledSection = styled.section`
     padding: 5px;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    display: flex;
     background-color: black;
-    flex-direction: row;
     position: relative;
-    overflow: hidden; /* Hide any content that may overflow from the iframe */
-    /* Customize the video overlay */
+    overflow: hidden;
+
     &::before {
       content: '';
       position: absolute;
@@ -50,13 +59,14 @@ function Section1() {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(
-        0,
-        0,
-        0,
-        0.6
-      ); /* You can adjust the opacity as needed */
+      background-color: rgba(0, 0, 0, 0.6);
     }
+  `
+  const IframeContainer = styled.div`
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
   `
 
   // eslint-disable-next-line react/display-name
@@ -64,8 +74,10 @@ function Section1() {
   return (
     <StyledSection>
       <Navbar />
-      <MemoizedIframe src="https://www.youtube.com/embed/m2ZbG0xEww0?playlist=m2ZbG0xEww0&autoplay=1&controls=0&mute=1&loop=1&modestbranding=1&showinfo=0&enablejsapi=1&&widgetid=3" />
-      <WebsiteOverlay />
+      <IframeContainer>
+        <MemoizedIframe src="https://www.youtube.com/embed/m2ZbG0xEww0?playlist=m2ZbG0xEww0&autoplay=1&controls=0&mute=1&loop=1&modestbranding=1&showinfo=0&enablejsapi=1&&widgetid=3" />
+        <WebsiteOverlay />
+      </IframeContainer>
     </StyledSection>
   )
 }
