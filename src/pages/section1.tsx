@@ -67,6 +67,9 @@ function Section1() {
     width: 100%;
     height: 0;
     padding-top: 56.25%;
+    @media (max-width: 400px) {
+      position: static;
+    }
   `
 
   // eslint-disable-next-line react/display-name
