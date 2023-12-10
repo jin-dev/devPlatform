@@ -6,6 +6,7 @@ import { db } from 'app/firebase'
 import { motion } from 'framer-motion'
 import Footer from 'components/footer/footer'
 import { IoPeopleOutline } from 'react-icons/io5'
+import Navbar from 'components/header/Navbar'
 
 interface IProps {
   data: number
@@ -83,6 +84,7 @@ const EventSection = ({
 const OpenClass = ({ data }: IProps) => {
   return (
     <section className="bg-dark-blue">
+      <Navbar />
       <div className="font-lato bg-white">
         <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">
           <div className="max-w-7xl mt-6 mb-6 mx-auto px-4 py-4 sm:px-6 lg:px-8 xl:px-4">

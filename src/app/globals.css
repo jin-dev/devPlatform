@@ -15,6 +15,7 @@ a{
 }
 header{
   position: sticky;
+  background-color: black;
   z-index: 30;
   top: 0;
   width:100%;

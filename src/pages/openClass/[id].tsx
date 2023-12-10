@@ -15,6 +15,7 @@ import {
   getCountFromServer,
 } from 'firebase/firestore'
 import { db } from 'app/firebase'
+import Navbar from 'components/header/Navbar'
 
 const initialItems = ['2024-01-13', '2024-01-20', '2024-01-21']
 const initialItems2 = ['15:00', '16:00', '17:00']
@@ -85,9 +86,8 @@ const ClassDetail = () => {
   }
 
   const submitReservation = () => {
-    console.log('activated')
     addItem()
-    console.log('completed')
+
     setConfirmed(true)
   }
 
@@ -109,6 +109,7 @@ const ClassDetail = () => {
 
   return (
     <div className="bg-dark-blue h-screen">
+      <Navbar />
       <div className="font-lato bg-white">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
