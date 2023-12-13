@@ -60,7 +60,7 @@ const ClassDetail = () => {
   const router = useRouter()
   const { id } = router.query
   const { data, setData } = useStore()
-
+  const currentSession = useStore((state) => state.session)
   const [items, setItems] = useState(initialItems)
   const [items2, setItems2] = useState(initialItems2)
   const [flag, setFlag] = useState(false)
@@ -70,8 +70,8 @@ const ClassDetail = () => {
 
   const addItem = async () => {
     await addDoc(collection(db, 'items-dev'), {
-      name: 'haha-NestSSO',
-      price: 77700,
+      name: `${currentSession?.user?.email}`,
+      reservedTime: `${data[0]} - ${data[1]}`,
       createdTime: new Date().toLocaleString(),
     })
   }

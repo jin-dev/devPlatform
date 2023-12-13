@@ -1,6 +1,6 @@
 import { Session } from 'next-auth'
 import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 
 interface Store {
   data: string[]
@@ -9,11 +9,19 @@ interface Store {
   setSession: (session: Session | null) => void
 }
 
-const useStore = create<Store>((set) => ({
-  data: [],
-  session: null,
-  setData: (data) => set({ data }),
-  setSession: (session) => set({ session }),
-}))
+const useStore = create<Store, [['zustand/persist', Store]]>(
+  persist(
+    (set) => ({
+      data: [],
+      session: null,
+      setData: (data) => set({ data }),
+      setSession: (session) => set({ session }),
+    }),
+    {
+      name: 'zustand-store', // name of the storage (localStorage) key
+      getStorage: () => sessionStorage, // or sessionStorage
+    },
+  ),
+)
 
 export default useStore

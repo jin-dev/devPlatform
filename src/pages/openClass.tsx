@@ -113,7 +113,7 @@ const OpenClass = ({ data }: IProps) => {
               classTitle="Nespresso Open Class"
               classDescription="Explore the elegance of espresso in our Nespresso Open Class. Master brewing techniques and savor premium blends with our expert baristas in a captivating session."
               classLocation="Hanam, Korea"
-              vacancyRate={data - 12}
+              vacancyRate={data}
               classImage="https://www.nespresso.com/shared_res/mos/free_html/kr/mainbanner/202311-referral-card-banner-1120x630px.png"
             />
           </div>
@@ -130,6 +130,5 @@ export async function getServerSideProps() {
   const dbRef = collection(db, 'items-dev')
   const snapshot = await getCountFromServer(dbRef)
   const data = snapshot.data().count
-
   return { props: { data } }
 }

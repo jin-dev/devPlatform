@@ -39,10 +39,12 @@ const MemoizedIframe = memo(({ src }: MemoizedIframeProps) => (
 MemoizedIframe.displayName = 'MemoizedVideo'
 
 function Section1() {
-  const { data: session, status } = useSession() || {}
-  const setSession = useStore((state) => state.setSession)
+  const { data: session } = useSession() || {}
+  const currentStore = useStore()
 
-  useEffect(() => {}, [session, status, setSession])
+  useEffect(() => {
+    currentStore.setSession(session)
+  }, [session])
 
   const StyledSection = styled.section`
     padding: 5px;

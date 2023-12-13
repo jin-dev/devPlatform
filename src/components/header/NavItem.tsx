@@ -13,16 +13,9 @@ interface NavProps {
 }
 
 const NavItem = ({ active, text, href, iconFlag }: NavProps) => {
-  const [popup, setPopup] = useState(false)
-
-  const activateAuth = () => {
-    console.log('HAHA auth')
-    setPopup(true)
-  }
-
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
-      activateAuth()
+      //  activateAuth()
     }
   }
 
