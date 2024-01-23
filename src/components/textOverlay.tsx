@@ -20,7 +20,7 @@ const WebsiteOverlay: React.FC = () => {
       }}
     >
       <div className="flex font-bold flex-col my-auto md:w-[30rem] md:h-2/4 backdrop-blur-[40px] p-4 rounded-3xl sm:w-32 sm:h-32">
-        <div className="md:text-6xl sm:text-base">Nespresso</div>
+        <div className="md:text-6xl sm:text-base">Proto Ver.</div>
         <div className="uppercase md:text-5xl md:mb-6 sm:text-base">
           What else?
         </div>
@@ -32,10 +32,10 @@ const WebsiteOverlay: React.FC = () => {
           className="md:absolute md:right-0 md:w-32 sm:w-16 sm:right-0 sm:top-10"
         />
         <div className="mb-6 tracking-wide leading-6 sm:text-sm">
-          Nespresso capsules are sleek, hermetically sealed pods containing
-          premium, finely ground coffee. Designed for use with Nespresso
-          machines, they offer a variety of rich flavors and aromas, ensuring a
-          perfect espresso at the touch of a button.
+          Our capsules are sleek, hermetically sealed pods containing premium,
+          finely ground coffee. Designed for use with Our machines, they offer a
+          variety of rich flavors and aromas, ensuring a perfect espresso at the
+          touch of a button.
         </div>
         <div className="flex md:text-3xl md:gap-8 md:mt-auto sm:text-xs">
           <FaFacebookF />

@@ -22,16 +22,17 @@ const Navbar: React.FC = () => {
   const [navActive, setNavActive] = useState<boolean | null>(null)
   const [activeIdx, setActiveIdx] = useState<number>(-1)
 
+  /*
+  <Image
+  width={180}
+  height={80}
+  alt="logo_example"
+  src="" // "https://drive.google.com/uc?id=1kwHpVnRlVwKZe0eSnQFLNYckv9gn_qOF"
+/>
+*/
   return (
     <header>
       <nav className="nav">
-        <Image
-          width={180}
-          height={80}
-          alt="logo_example"
-          src="https://drive.google.com/uc?id=1kwHpVnRlVwKZe0eSnQFLNYckv9gn_qOF"
-        />
-
         <div onClick={() => setNavActive(!navActive)} className="nav__menu-bar">
           <div />
           <div />

@@ -101,8 +101,8 @@ const OpenClass = ({ data }: IProps) => {
             <EventSection
               eventMonth="January. 2024"
               eventDate="2024-01-01"
-              classTitle="Nespresso Open Class"
-              classDescription="Dive into the Nespresso Open Class: Master espresso artistry and uncover unique flavors with our expert baristas, where every sip is an adventure."
+              classTitle="Our Open Class"
+              classDescription="Dive into the Our Open Class: Master espresso artistry and uncover unique flavors with our expert baristas, where every sip is an adventure."
               classLocation="Seoul, Korea"
               vacancyRate={data}
               classImage="https://www.nespresso.com/ecom/medias/sys_master/public/29408650821662/2311-festive-card-banner-ma-1120x630px.png?impolicy=small&imwidth=560&imdensity=1"
@@ -110,8 +110,8 @@ const OpenClass = ({ data }: IProps) => {
             <EventSection
               eventMonth="Feb. 2024"
               eventDate="2024-02-015"
-              classTitle="Nespresso Open Class"
-              classDescription="Explore the elegance of espresso in our Nespresso Open Class. Master brewing techniques and savor premium blends with our expert baristas in a captivating session."
+              classTitle="Our Open Class 2"
+              classDescription="Explore the elegance of espresso in our Open Class. Master brewing techniques and savor premium blends with our expert baristas in a captivating session."
               classLocation="Hanam, Korea"
               vacancyRate={data}
               classImage="https://www.nespresso.com/shared_res/mos/free_html/kr/mainbanner/202311-referral-card-banner-1120x630px.png"

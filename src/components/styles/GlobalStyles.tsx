@@ -26,8 +26,9 @@ header{
 nav{
   display: flex;
   padding: 0 10px;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 10px;
 
 }
 .nav__menu-bar{
